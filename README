@@ -1,0 +1,27 @@
+This code was forked from the Xen hypervisor version 4.5.1, and modified
+by Stephen Kell for use as a simple instruction decoder.
+
+BEWARE: this code has a history of security vulnerabilities when used in
+security-critical applications (e.g. inside the hypervisor, emulating
+instructions). Use it at your own risk.
+
+My interest in the code is that it's the most compact implementation of
+x86 I'm aware of, and that it's written in C with no external
+dependencies. I currently use it in my libsystrap project, only for
+decode, and in user processes (a much safer proposition than
+in-hypervisor emulation!). 
+
+The intention is to backport later changes from Xen (whose version 4.5.1
+dates from mid-2016), restore emulation capability, and add some very
+basic/limited symbolic execution support for a subset of instructions,
+to support a few binary analysis applications. Patches in support of the
+above are welcome. Again, a key goal is to keep things simple enough
+that the code can easily be linked in to a tool or runtime written in C,
+in contrast to full-scale binary analysis systems like BAP.
+
+Like Xen, the licence is "GPLv2 or later". See LICENSE.gpl2. I might be
+able to license my changes differently if that would help you (thought I
+doubt it).
+
+Stephen Kell
+7th April 2020
