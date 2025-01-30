@@ -167,8 +167,8 @@ struct x86_decode_ops
 		unsigned long *p_reg,
 		enum x86_segment *p_mem_seg,
 		unsigned long *p_mem_off,
-		unsigned long *p_mem_fromreg1,
-		unsigned long *p_mem_fromreg2);
+		unsigned *p_mem_fromreg1,
+		unsigned *p_mem_fromreg2);
 	int (*next_instr)(unsigned char *pos);
 	int (*finished_decode)(void);
 };
